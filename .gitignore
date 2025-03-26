@@ -163,3 +163,5 @@ cython_debug/
 RawData/
 
 preprocessed_data/
+
+cnn_model.h5

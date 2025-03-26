@@ -16,7 +16,7 @@ cnn_train_again = False
 cnn_save_model = True
 
 # Load dataset
-prepared_data_path = "/Users/vansh11/Downloads/prepared_dataset/"
+prepared_data_path = "/Users/vansh11/Downloads/CMPT 340/PROJECT/2025_1_project_22/src/preprocessed_data"
 batch_size = 64  # Increased batch size for faster training
 img_size = (224, 224)
 
