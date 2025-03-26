@@ -58,7 +58,7 @@ else:
     cnn_model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Fast training settings
-early_stop = EarlyStopping(monitor="val_loss", patience=5, restore_best_weights=True, verbose=1)
+early_stop = EarlyStopping(monitor="val_loss", patience=3, restore_best_weights=True, verbose=1)
 reduce_lr_callback = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=2, min_lr=0.0001)
 
 # Train or load history
@@ -69,7 +69,7 @@ else:
     train_set.reset()
     validation_set.reset()
     results = cnn_model.fit(
-        train_set, epochs=20, validation_data=validation_set,
+        train_set, epochs=15, validation_data=validation_set,
         callbacks=[early_stop, reduce_lr_callback], class_weight=class_weights
     )
     cnn_history = results.history
