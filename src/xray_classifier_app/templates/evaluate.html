@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Evaluation - {{ model_name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Loading overlay styles */
+    #loading {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.8);
+      z-index: 9999;
+      text-align: center;
+      padding-top: 20%;
+      font-size: 1.5em;
+      color: #e91e63;
+    }
+    .spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #e91e63;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>{{ model_name }} - Evaluation Page</h1>
+    <p>Enter the folder path on the server and click "Evaluate Folder".<br>
+       (e.g., "C:\Users\Jawdat Eissa\Desktop\Project\flask_app\test\Covid")</p>
+    
+    <!-- Folder Evaluation Form -->
+    <div class="upload-section">
+      <h2>Evaluate Folder</h2>
+      <form id="folderForm" action="{{ url_for('evaluate', model=model_key) }}" method="post">
+        <input type="text" name="folder_path" value="{{ folder_path }}" required>
+        <input type="hidden" name="model" value="{{ model_key }}">
+        <button type="submit" name="folder_submit">Evaluate Folder</button>
+      </form>
+      
+      {% if folder_results %}
+      <div class="result">
+        <h3>Folder Evaluation Results</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Total</th>
+              <th>Correct</th>
+              <th>Incorrect</th>
+              <th>Accuracy (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for label, stats in folder_results.items() %}
+              {% if stats.total > 0 %}
+              <tr>
+                <td>{{ label.capitalize() }}</td>
+                <td>{{ stats.total }}</td>
+                <td>{{ stats.correct }}</td>
+                <td>{{ stats.incorrect }}</td>
+                <td>{{ "%.2f"|format((stats.correct / stats.total * 100)) }}</td>
+              </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+    
+    <hr>
+    
+    <!-- Single Image Upload Form -->
+    <div class="upload-section">
+      <h2>Single Image Upload</h2>
+      <form id="imageForm" action="{{ url_for('evaluate', model=model_key) }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="single_file" accept="image/*" required>
+        <input type="hidden" name="model" value="{{ model_key }}">
+        <button type="submit">Upload Image</button>
+      </form>
+      {% if single_prediction %}
+        <div class="result">
+          <h3>Prediction:</h3>
+          <p>{{ single_prediction }}</p>
+        </div>
+      {% endif %}
+    </div>
+    
+    <a href="{{ url_for('landing') }}" class="back-link">← Back to Model Selection</a>
+  </div>
+  
+  <!-- Loading overlay -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Processing, please wait...</p>
+  </div>
+  
+  <script>
+    // Show loading overlay when any form is submitted.
+    document.getElementById('folderForm').addEventListener('submit', function(){
+      document.getElementById('loading').style.display = 'block';
+    });
+    document.getElementById('imageForm').addEventListener('submit', function(){
+      document.getElementById('loading').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
