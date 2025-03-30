@@ -94,3 +94,9 @@ Output will be saved in ...
 - Use [VSCode](https://code.visualstudio.com/) or a similarly powerful IDE
 - Use [Copilot for free](https://dev.to/twizelissa/how-to-enable-github-copilot-for-free-as-student-4kal)
 - Sign up for [GitHub Education](https://education.github.com/) 
+
+
+
+
+
+REQUIREMENTS.TXT CONTAINS ALL THE MODULES NEEDED TO RUN THE CODE, SIMPLY EXECUTE: pip install -r requirements.txt
