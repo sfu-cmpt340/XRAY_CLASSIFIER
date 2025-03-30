@@ -105,7 +105,7 @@ For the data, first download the 3 datasets stored under /RawData from [here](ht
 
 📦RawData
 
- ┣ 📂archive_1
+ ┣ 📂dataset1
 
  ┃ ┣ 📂COVID
 
@@ -131,7 +131,7 @@ For the data, first download the 3 datasets stored under /RawData from [here](ht
 
  ┃ ┃ ┣  .....
 
- ┣ 📂archive_2
+ ┣ 📂dataset2
 
  ┃ ┗ 📂all_images
 
@@ -185,7 +185,7 @@ For the data, first download the 3 datasets stored under /RawData from [here](ht
 
  ┃ ┃ ┃ ┃ ┣  .....
 
- ┗ 📂archive_3
+ ┗ 📂dataset3
 
  ┃ ┗ 📂chest_xray
 
@@ -242,4 +242,3 @@ For the data, first download the 3 datasets stored under /RawData from [here](ht
  ┃ ┃ ┃ ┃ ┣ 📜person1946_bacteria_4875.jpeg
 
  ┃ ┃ ┃ ┃ ┣  .....
- 
