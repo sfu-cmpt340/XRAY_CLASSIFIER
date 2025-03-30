@@ -166,3 +166,6 @@ preprocessed_data/
 
 cnn_model.h5
 cnn_model_history.pkl
+resnet50_chest_diagnosis.h5
+densenet.pth  
+vgg16.pth
