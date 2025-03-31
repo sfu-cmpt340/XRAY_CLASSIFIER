@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(__file__)  # This gives you the `src/` directory
 
 # Construct absolute paths to the models
 cnn_model_path = os.path.join(BASE_DIR, "Models", "cnn_model.h5")
-resnet_model_path = os.path.join(BASE_DIR, "Models", "resnet50_chest_diagnosis.h5")
+resnet_model_path = os.path.join(BASE_DIR, "Models", "resnet50model.pth")
 densenet_model_path = os.path.join(BASE_DIR, "Models", "densenet.pth")
 vgg16_model_path = os.path.join(BASE_DIR, "Models", "vgg16_full.pth")
 
@@ -43,12 +43,18 @@ if cnn_model is None:
 else:
     print("CNN model loaded successfully.")
 
-# Load the ResNet model
-resnet_model = load_model(resnet_model_path)
-if resnet_model is None:
-    print("ERROR loading ResNet model. Make sure you have the correct file.")
-else:
-    print("ResNet model loaded successfully.")
+
+
+try:
+    # Load the entire model instead of just the state dictionary
+    resnet_model = torch.load(resnet_model_path, map_location=DEVICE, weights_only=False)
+    resnet_model.to(DEVICE)
+    resnet_model.eval()
+    print("Resnet model loaded successfully.")
+except Exception as e:
+    resnet_model = None
+    print("ERROR loading Resnet model. Make sure you have the correct file.")
+    print(e)
 
 # -- C) PyTorch model (densenet.pth)
 try:
@@ -177,7 +183,7 @@ def evaluate():
     model_key = request.args.get("model") or request.form.get("model")
     models_dict = {
         "cnn_model": {"object": cnn_model, "type": "keras", "name": "CNN Model"},
-        "resnet_model": {"object": resnet_model, "type": "keras", "name": "ResNet Model"},
+        "resnet_model": {"object": resnet_model, "type": "torch", "name": "ResNet Model"},
         "dense_net_model": {"object": dense_net_model, "type": "torch", "name": "DenseNet Model"},
         "vgg_model": {"object": vgg16_model, "type": "torch", "name": "VGG Model"}  # Added VGG model
     }
