@@ -174,3 +174,5 @@ cnn_model_history.pkl
 *.orig
 
 Models/
+
+.DS_Store
