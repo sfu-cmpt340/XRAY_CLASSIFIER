@@ -28,50 +28,43 @@ class_names = {
 # -------------------------------
 # 2) Load your models
 # -------------------------------
-# -- A) Keras model #1 (cnn_model.h5)
-cnn_model = load_model('cnn_model.h5')
+BASE_DIR = os.path.dirname(__file__)  # This gives you the `src/` directory
 
-# -- B) Keras model #2 (resnet50_chest_diagnosis.h5)
-resnet_model = load_model('resnet50_chest_diagnosis.h5')
+# Construct absolute paths to the models
+cnn_model_path = os.path.join(BASE_DIR, "Models", "cnn_model.h5")
+resnet_model_path = os.path.join(BASE_DIR, "Models", "resnet50_chest_diagnosis.h5")
+densenet_model_path = os.path.join(BASE_DIR, "Models", "densenet.pth")
+vgg16_model_path = os.path.join(BASE_DIR, "Models", "vgg16_full.pth")
+
+
+cnn_model = load_model(cnn_model_path)
+if cnn_model is None:
+    print("ERROR loading CNN model. Make sure you have the correct file.")
+else:
+    print("CNN model loaded successfully.")
+
+# Load the ResNet model
+resnet_model = load_model(resnet_model_path)
+if resnet_model is None:
+    print("ERROR loading ResNet model. Make sure you have the correct file.")
+else:
+    print("ResNet model loaded successfully.")
 
 # -- C) PyTorch model (densenet.pth)
 try:
     # Load the entire model instead of just the state dictionary
-    dense_net_model = torch.load("densenet.pth", map_location=DEVICE, weights_only=False)
+    dense_net_model = torch.load(densenet_model_path, map_location=DEVICE, weights_only=False)
     dense_net_model.to(DEVICE)
     dense_net_model.eval()
+    print("DenseNet model loaded successfully.")
 except Exception as e:
     dense_net_model = None
     print("ERROR loading DenseNet model. Make sure you have the correct file.")
     print(e)
 
 
-# -- D) PyTorch VGG16 Model (vgg16.pth)
-class XRayVGG16(nn.Module):
-    def __init__(self, num_classes=4):
-        super(XRayVGG16, self).__init__()
-        base_vgg16 = models.vgg16(pretrained=False)
-        for param in base_vgg16.features.parameters():
-            param.requires_grad = False
-        num_ftrs = base_vgg16.classifier[0].in_features
-        base_vgg16.classifier = nn.Sequential(
-            nn.Linear(num_ftrs, 256),
-            nn.ReLU(inplace=True),
-            nn.Dropout(0.5),
-            nn.Linear(256, num_classes)
-        )
-        self.features = base_vgg16.features
-        self.classifier = base_vgg16.classifier
-
-    def forward(self, x):
-        x = self.features(x)
-        x = x.view(x.size(0), -1)
-        x = self.classifier(x)
-        return x
-
 try:
-    vgg16_model = XRayVGG16(num_classes=4)
-    vgg16_model.load_state_dict(torch.load("vgg16.pth", map_location=DEVICE, weights_only=False))
+    vgg16_model=torch.load(vgg16_model_path, map_location=DEVICE, weights_only=False)
     vgg16_model.to(DEVICE)
     vgg16_model.eval()
     print("VGG16 custom model loaded successfully.")
