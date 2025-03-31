@@ -94,3 +94,151 @@ Output will be saved in ...
 - Use [VSCode](https://code.visualstudio.com/) or a similarly powerful IDE
 - Use [Copilot for free](https://dev.to/twizelissa/how-to-enable-github-copilot-for-free-as-student-4kal)
 - Sign up for [GitHub Education](https://education.github.com/) 
+
+
+
+
+
+REQUIREMENTS.TXT CONTAINS ALL THE MODULES NEEDED TO RUN THE CODE, SIMPLY EXECUTE: pip install -r requirements.txt
+
+For the data, first download the 3 datasets stored under /RawData from [here](https://www.kaggle.com/datasets/c090ee268c931d0b423485dcc61f82b9befc4039236f33ea6155cb0fa4f127d8). The final folder structure should resemble the below, and then you can run /src/results.ipynb to clean and prepare the data, after which it will be stored under a folder called /preprocessed_data:
+
+📦RawData
+
+ ┣ 📂dataset1
+
+ ┃ ┣ 📂COVID
+
+ ┃ ┃ ┣ 📜COVID.png
+
+ ┃ ┃ ┣ 📜COVID_10.png
+
+ ┃ ┃ ┣  .....
+
+ ┃ ┣ 📂NORMAL
+
+ ┃ ┃ ┣ 📜NORMAL.png
+
+ ┃ ┃ ┣ 📜NORMAL_10.png
+
+ ┃ ┃ ┣  .....
+
+ ┃ ┗ 📂PNEUMONIA
+
+ ┃ ┃ ┣ 📜PNEUMONIA.png
+
+ ┃ ┃ ┣ 📜PNEUMONIA_10.png
+
+ ┃ ┃ ┣  .....
+
+ ┣ 📂dataset2
+
+ ┃ ┗ 📂all_images
+
+ ┃ ┃ ┣ 📂Normal
+
+ ┃ ┃ ┃ ┣ 📜CHNCXR_0001_0.png
+
+ ┃ ┃ ┃ ┣ 📜CHNCXR_0002_0.png
+
+ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┣ 📂Pneumonia
+ 
+ ┃ ┃ ┃ ┣ 📜BACTERIA-1008087-0001.jpeg
+
+ ┃ ┃ ┃ ┣ 📜BACTERIA-1025587-0001.jpeg
+
+ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┣ 📂Tuberculosis
+
+ ┃ ┃ ┃ ┣ 📜CHNCXR_0327_1.png
+
+ ┃ ┃ ┃ ┣ 📜CHNCXR_0328_1.png
+
+ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┗ 📂universal_test
+
+ ┃ ┃ ┃ ┣ 📂Normal
+
+ ┃ ┃ ┃ ┃ ┣ 📜CHNCXR_0153_0.png
+
+ ┃ ┃ ┃ ┃ ┣ 📜CHNCXR_0158_0.png
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┃ ┣ 📂Pneumonia
+
+ ┃ ┃ ┃ ┃ ┣ 📜BACTERIA-1083680-0012.jpeg
+
+ ┃ ┃ ┃ ┃ ┣ 📜BACTERIA-1351146-0002.jpeg
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┃ ┗ 📂Tuberculosis
+
+ ┃ ┃ ┃ ┃ ┣ 📜CHNCXR_0333_1.png
+
+ ┃ ┃ ┃ ┃ ┣ 📜CHNCXR_0365_1.png
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┗ 📂dataset3
+
+ ┃ ┗ 📂chest_xray
+
+ ┃ ┃ ┣ 📂test
+
+ ┃ ┃ ┃ ┣ 📂NORMAL
+
+ ┃ ┃ ┃ ┃ ┣ 📜IM-0001-0001.jpeg
+
+ ┃ ┃ ┃ ┃ ┣ 📜IM-0003-0001.jpeg
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┃ ┗ 📂PNEUMONIA
+
+ ┃ ┃ ┃ ┃ ┣ 📜person100_bacteria_475.jpeg
+
+ ┃ ┃ ┃ ┃ ┣ 📜person100_bacteria_477.jpeg
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┣ 📂train
+
+ ┃ ┃ ┃ ┣ 📂NORMAL
+
+ ┃ ┃ ┃ ┃ ┣ 📜IM-0115-0001.jpeg
+
+ ┃ ┃ ┃ ┃ ┣ 📜IM-0117-0001.jpeg
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┃ ┗ 📂PNEUMONIA
+
+ ┃ ┃ ┃ ┃ ┣ 📜person1000_bacteria_2931.jpeg
+
+ ┃ ┃ ┃ ┃ ┣ 📜person1000_virus_1681.jpeg
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┗ 📂val
+
+ ┃ ┃ ┃ ┣ 📂NORMAL
+
+ ┃ ┃ ┃ ┃ ┣ 📜NORMAL2-IM-1427-0001.jpeg
+
+ ┃ ┃ ┃ ┃ ┣ 📜NORMAL2-IM-1430-0001.jpeg
+
+ ┃ ┃ ┃ ┃ ┣  .....
+
+ ┃ ┃ ┃ ┗ 📂PNEUMONIA
+
+ ┃ ┃ ┃ ┃ ┣ 📜person1946_bacteria_4874.jpeg
+
+ ┃ ┃ ┃ ┃ ┣ 📜person1946_bacteria_4875.jpeg
+
+ ┃ ┃ ┃ ┃ ┣  .....
