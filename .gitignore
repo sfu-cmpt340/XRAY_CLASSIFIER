@@ -166,3 +166,6 @@ preprocessed_data/
 
 cnn_model.h5
 cnn_model_history.pkl
+
+*.pth
+*.h5
