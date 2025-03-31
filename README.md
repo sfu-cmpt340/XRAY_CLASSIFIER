@@ -97,7 +97,7 @@ Output will be saved in ...
 
 
 
-
+You Can download the pre-trained models from [here](https://1sfu-my.sharepoint.com/:f:/g/personal/vba27_sfu_ca/EtSRgK16LH5AhFxHJfuABZcBHDMEQmy5NeDC2XsQ6Sf0xw?e=B1KBh8)
 
 REQUIREMENTS.TXT CONTAINS ALL THE MODULES NEEDED TO RUN THE CODE, SIMPLY EXECUTE: pip install -r requirements.txt
 
