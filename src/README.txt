@@ -1,5 +1,5 @@
 to install all the dependencies run this command in your terminal:
-pip install numpy flask tensorflow torch torchvision Pillow
+pip install numpy flask tensorflow torch torchvision Pillow tqdm
 
 
 
