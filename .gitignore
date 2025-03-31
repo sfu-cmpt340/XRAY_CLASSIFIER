@@ -172,3 +172,5 @@ cnn_model_history.pkl
 
 # ignore merge conflict files
 *.orig
+
+Models/
