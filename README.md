@@ -1,7 +1,7 @@
 # SFU CMPT 340 Project: X-RAY AI Diagnostics (XAD)
 Chest X-Ray Classification for Pneumonia, COVID-19, and Tuberculosis
 
-This repository hosts an AI-powered chest X-ray diagnosis platform (XAD) that detects pneumonia, COVID-19, tuberculosis, or normal cases using deep learning models like ResNet50, VGG16, DenseNet, and a custom CNN. Designed for rapid, automated screening, the system aids in early disease detection with high accuracy.
+This repository hosts an ML-powered chest X-ray diagnosis platform (XAD) that detects pneumonia, COVID-19, tuberculosis, or normal cases using deep learning models like ResNet50, VGG16, DenseNet, and a custom CNN. Designed for rapid, automated screening, the system aids in early disease detection with high accuracy.
 
 ## Important Links
 
