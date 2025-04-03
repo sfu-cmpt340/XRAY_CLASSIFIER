@@ -1,22 +1,21 @@
-# SFU CMPT 340 Project Template -- XRAY_CLASSIFIER
-This repository is a template for your CMPT 340 course project.
-Replace the title with your project title, and **add a snappy acronym that people remember (mnemonic)**.
+# SFU CMPT 340 Project: X-RAY AI Diagnostics (XAD)
+Chest X-Ray Classification for Pneumonia, COVID-19, and Tuberculosis
 
-Add a 1-2 line summary of your project here.
+This repository hosts an AI-powered chest X-ray diagnosis platform (XAD) that detects pneumonia, COVID-19, tuberculosis, or normal cases using deep learning models like ResNet50, VGG16, DenseNet, and a custom CNN. Designed for rapid, automated screening, the system aids in early disease detection with high accuracy.
 
 ## Important Links
 
-| [Timesheet](https://google.com) | [Slack channel](https://google.com) | [Project report](https://google.com) |
+| [Timesheet](https://1sfu-my.sharepoint.com/:x:/g/personal/hamarneh_sfu_ca/ETZDyt-1139OpamBVGsB2w4BZVlXW8KB0NuZ6f8KJasrKw?e=gQhICv) | [Slack channel](https://cmpt340spring2025.slack.com/archives/C0874FUQ8H3) | [Project report](https://www.overleaf.com/project/677239e2aa8b75b4a28c3c7f) |
 |-----------|---------------|-------------------------|
 
 
-- Timesheet: Link your timesheet (pinned in your project's Slack channel) where you track per student the time and tasks completed/participated for this project/
-- Slack channel: Link your private Slack project channel.
-- Project report: Link your Overleaf project report document.
+- Timesheet: Excel Timesheet containing our individual hours.
+- Slack channel: Slack project channel that we utilized for our project.
+- Project report: Overleaf project report document that we submitted as part of the project.
 
 
-## Video/demo/GIF
-Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen recording or even using PowerPoint with audio or with text, showcasing your work.
+## Video
+🎥 WATCH OUR DEMO VIDEO: ▶️ [![Click to Play](https://img.youtube.com/vi/ln4UG-2a6ko/0.jpg)](https://youtu.be/ln4UG-2a6ko)
 
 
 ## Table of Contents
@@ -97,6 +96,7 @@ Output will be saved in ...
 
 
 
+📂 DOWNLOAD THE DATASET HERE: 🔗 [Click to Download](https://www.kaggle.com/datasets/c090ee268c931d0b423485dcc61f82b9befc4039236f33ea6155cb0fa4f127d8)
 
 
 REQUIREMENTS.TXT CONTAINS ALL THE MODULES NEEDED TO RUN THE CODE, SIMPLY EXECUTE: pip install -r requirements.txt
