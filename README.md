@@ -15,7 +15,7 @@ This repository hosts an AI-powered chest X-ray diagnosis platform (XAD) that de
 
 
 ## Video
-🎥 WATCH OUR DEMO VIDEO: ▶️ [![Click to Play](https://img.youtube.com/vi/ln4UG-2a6ko/0.jpg)](https://youtu.be/ln4UG-2a6ko)
+[![Click to Play](https://img.youtube.com/vi/ln4UG-2a6ko/0.jpg)](https://youtu.be/ln4UG-2a6ko)
 
 
 ## Table of Contents
