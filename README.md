@@ -115,8 +115,10 @@ To reproduce the full pipeline from data preprocessing to inference, follow the 
 
 1. Download all 3 datasets and place them inside a folder named `RawData/` in the root of the project.
      🔗 **[Click to Download Datasets](https://www.kaggle.com/datasets/c090ee268c931d0b423485dcc61f82b9befc4039236f33ea6155cb0fa4f127d8)**
+
+   
 In case you want to download the already cleaned dataset, obtained after executing results.ipynb, you can download it here,
-    🔗 **[Click to Download CleanedDatasets](https://kaggle.com/datasets/73f9b4ed3708599a71baa907403ac236a878afaff0b04b507a92db6d5d017d4d)**
+    🔗 **[Click to Download Cleaned Datasets](https://kaggle.com/datasets/73f9b4ed3708599a71baa907403ac236a878afaff0b04b507a92db6d5d017d4d)**
 
    
 3. Run the notebook `results.ipynb` to clean and preprocess the data.
