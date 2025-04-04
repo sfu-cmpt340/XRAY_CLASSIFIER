@@ -58,10 +58,10 @@ repository/
 │   └── templates/           # HTML templates for Flask
 │       ├── index.html
 │       └── result.html
-├── Model/                   # Pretrained or newly trained model files (.h5)
-│   ├── resnet_model.h5
-│   ├── vgg16_model.h5
-│   ├── densenet_model.h5
+├── Model/                   # Pretrained or newly trained model files (.h5/.pth)
+│   ├── resnet_model.pth
+│   ├── vgg16_model.pth
+│   ├── densenet_model.pth
 │   └── ...
 ├── RawData/                 # Raw datasets (manually downloaded)
 ├── preprocessed_data/       # Output from results.ipynb after cleaning
@@ -152,9 +152,9 @@ Once training is complete, create a folder named Model/ in the root directory an
 ```bash
 xray-ai-diagnostics/
 ├── Model/
-│   ├── resnet_model.h5
-│   ├── vgg16_model.h5
-│   ├── densenet_model.h5
+│   ├── resnet_model.pth
+│   ├── vgg16_model.pth
+│   ├── densenet_model.pth
 │   └── ...
 ```
     ⚠️ The Flask web app expects these model files to be present inside the Model/ folder. Without them, prediction will not work.
