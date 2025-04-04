@@ -33,6 +33,8 @@ This repository hosts an ML-powered chest X-ray diagnosis platform (XAD) that de
 
 A minimal example to showcase your work
 
+<img width="1156" alt="Screenshot 2025-04-03 at 11 50 27 PM" src="https://github.com/user-attachments/assets/a3982d20-6353-4c4c-b665-e3fa97fb2af6" />
+
 
 
 ### What to find where
