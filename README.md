@@ -33,12 +33,7 @@ This repository hosts an ML-powered chest X-ray diagnosis platform (XAD) that de
 
 A minimal example to showcase your work
 
-```python
-from amazing import amazingexample
-imgs = amazingexample.demo()
-for img in imgs:
-    view(img)
-```
+
 
 ### What to find where
 
