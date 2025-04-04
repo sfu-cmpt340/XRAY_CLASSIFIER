@@ -146,7 +146,7 @@ tornado==6.4.2
 tqdm==4.67.1
 traitlets==5.14.3
 transformers==4.50.0
-transformers-interpret==0.10.0
+#transformers-interpret==0.10.0
 typer==0.15.2
 typing_extensions==4.12.2
 tzdata==2025.2
