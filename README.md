@@ -39,7 +39,7 @@ A minimal example to showcase your work
 
 ### What to find where
 
-Explain briefly what files are found where
+What files are found where
 
 ```bash
 repository/
@@ -70,12 +70,13 @@ repository/
 <a name="installation"></a>
 
 ## 2. Installation
+### 🛑 Python 3.13 is not officially supported (issues with Pytorch and other dependencies). Please use Python 3.11 or below (greater than 3.7) to avoid potential compatibility issues.
 ### ⚠️ If you would like to train the models yourself, you will need the dataset — see the note at the end of this section.
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-org/xray-ai-diagnostics.git
-cd xray-ai-diagnostics
+git clone https://github.com/sfu-cmpt340/XRAY_CLASSIFIER.git
+cd XRAY_CLASSIFIER
 ```
 ### 2️⃣ Create a Virtual Environment & Install Dependencies
 ```bash
@@ -145,7 +146,7 @@ python densenet.py
 ```
 Each script will train the respective model and output a .h5 or .pth file
 
-Once training is complete, create a folder named Model/ in the root directory and move all the trained .h5 files into it:
+Once training is complete, create a folder named Model/ in the root directory and move all the trained .h5 and .pth files into it:
 ```bash
 xray-ai-diagnostics/
 ├── Model/
