@@ -55,11 +55,11 @@ repository/
 │   └── templates/           # HTML templates for Flask
 │       ├── index.html
 │       └── result.html
-├── Model/                   # Pretrained or newly trained model files (.h5/.pth)
-│   ├── resnet_model.pth
-│   ├── vgg16_model.pth
-│   ├── densenet_model.pth
-│   └── ...
+|     ├── Models/                   # Pretrained or newly trained model files (.h5/.pth)
+│        ├── resnet_model.pth
+│        ├── vgg16_model.pth
+│        ├── densenet_model.pth
+│        └── ...
 ├── RawData/                 # Raw datasets (manually downloaded)
 ├── preprocessed_data/       # Output from results.ipynb after cleaning
 ├── results.ipynb            # Jupyter notebook to clean & prepare data
@@ -89,7 +89,7 @@ pip install -r requirements.txt
 Download the pretrained models from OneDrive:  
 🔗 [Click to Download Models](https://1sfu-my.sharepoint.com/:f:/g/personal/vba27_sfu_ca/EtSRgK16LH5AhFxHJfuABZcBHDMEQmy5NeDC2XsQ6Sf0xw?e=1MYWk6)
 
-Create a folder named `Model` in the root of the repository and place all the `.h5` and `.pth` model files inside.
+Create a folder named `Models` in the src directory (src should have a folder called Models) of the repository and place all the `.h5` and `.pth` model files inside.
 ### 4️⃣ 🚀 Run the Flask Web App
 
 ```bash
@@ -149,11 +149,12 @@ Each script will train the respective model and output a .h5 or .pth file
 Once training is complete, create a folder named Model/ in the root directory and move all the trained .h5 and .pth files into it:
 ```bash
 xray-ai-diagnostics/
-├── Model/
-│   ├── resnet_model.pth
-│   ├── vgg16_model.pth
-│   ├── densenet_model.pth
-│   └── ...
+|── src
+|     ├── Model/
+│        ├── resnet_model.pth
+│        ├── vgg16_model.pth
+│        ├── densenet_model.pth
+│        └── ...
 ```
     ⚠️ The Flask web app expects these model files to be present inside the Model/ folder. Without them, prediction will not work.
 
