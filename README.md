@@ -96,7 +96,7 @@ Create a folder named `Models` in the src directory (src should have a folder ca
 cd src
 python app.py
 ```
-
+Visit http://127.0.0.1:5000 for Web Frontend
 
 ### ⚠️ Note on Dataset Preparation
 
@@ -150,7 +150,7 @@ Once training is complete, create a folder named Model/ in the root directory an
 ```bash
 xray-ai-diagnostics/
 |── src
-|     ├── Model/
+|     ├── Models/
 │        ├── resnet_model.pth
 │        ├── vgg16_model.pth
 │        ├── densenet_model.pth
@@ -163,7 +163,7 @@ You can then proceed to run the web application using:
 cd src
 python app.py
 ```
-
+Visit http://127.0.0.1:5000 for Web Frontend
 <a name="guide"></a>
 ## 4. Guidance
 
