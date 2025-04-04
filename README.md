@@ -45,40 +45,125 @@ for img in imgs:
 Explain briefly what files are found where
 
 ```bash
-repository
-├── src                          ## source code of the package itself
-├── scripts                      ## scripts, if needed
-├── docs                         ## If needed, documentation   
-├── README.md                    ## You are here
-├── requirements.yml             ## If you use conda
+repository/
+├── src/                     # Source code and model scripts
+│   ├── app.py               # Entry point for the Flask web app
+│   ├── resnet50.py          # ResNet50 model training and saving
+│   ├── densenet.py          # DenseNet model with regularization
+│   ├── vgg16_training.py    # VGG16 model setup and training
+│   ├── cnnmodel.py          # Custom CNN model architecture
+│   ├── static/              # Static files (e.g. CSS)
+│   │   └── css/
+│   │       └── style.css
+│   └── templates/           # HTML templates for Flask
+│       ├── index.html
+│       └── result.html
+├── Model/                   # Pretrained or newly trained model files (.h5)
+│   ├── resnet_model.h5
+│   ├── vgg16_model.h5
+│   ├── densenet_model.h5
+│   └── ...
+├── RawData/                 # Raw datasets (manually downloaded)
+├── preprocessed_data/       # Output from results.ipynb after cleaning
+├── results.ipynb            # Jupyter notebook to clean & prepare data
+├── requirements.txt         # Python dependencies for app.py
+└── README.md                # Project documentation (you are here)
 ```
 
 <a name="installation"></a>
 
 ## 2. Installation
-
-Provide sufficient instructions to reproduce and install your project. 
-Provide _exact_ versions, test on CSIL or reference workstations.
+### ⚠️ If you would like to train the models yourself, you will need the dataset — see the note at the end of this section.
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone $THISREPO
-cd $THISREPO
-conda env create -f requirements.yml
-conda activate amazing
+git clone https://github.com/your-org/xray-ai-diagnostics.git
+cd xray-ai-diagnostics
 ```
+### 2️⃣ Create a Virtual Environment & Install Dependencies
+```bash
+python -m venv venv
+source venv/bin/activate     # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+### 3️⃣ 📥 Download Pretrained Models
+
+Download the pretrained models from OneDrive:  
+🔗 [Click to Download Models](https://1sfu-my.sharepoint.com/:f:/g/personal/vba27_sfu_ca/EtSRgK16LH5AhFxHJfuABZcBHDMEQmy5NeDC2XsQ6Sf0xw?e=1MYWk6)
+
+Create a folder named `Model` in the root of the repository and place all the `.h5` and `.pth` model files inside.
+### 4️⃣ 🚀 Run the Flask Web App
+
+```bash
+cd src
+python app.py
+```
+
+
+### ⚠️ Note on Dataset Preparation
+
+To run the project end-to-end (including training or testing with your own data), you must manually download the raw datasets and process them before use. Next section covers the end-to-end process.
+
 
 <a name="repro"></a>
+
+
 ## 3. Reproduction
-Demonstrate how your work can be reproduced, e.g. the results in your report.
+To reproduce the full pipeline from data preprocessing to inference, follow the steps below:
+
+---
+
+### 1️⃣ Download and Organize the Datasets
+
+1. Download all 3 datasets and place them inside a folder named `RawData/` in the root of the project.
+     🔗 **[Click to Download Datasets](https://www.kaggle.com/datasets/c090ee268c931d0b423485dcc61f82b9befc4039236f33ea6155cb0fa4f127d8)**
+3. Run the notebook `results.ipynb` to clean and preprocess the data.
+> 🧪 `results.ipynb` has additional dependencies not listed in `requirements.txt`, such as `jupyter`, `seaborn`, and `tqdm`.  
+> We recommend creating a separate environment or manually installing these extras if you're working with the data processing notebook.
+
+This will generate a new folder called `preprocessed_data/` containing the formatted datasets used by the models.
+
+You can run the notebook using:
+
 ```bash
-mkdir tmp && cd tmp
-wget https://yourstorageisourbusiness.com/dataset.zip
-unzip dataset.zip
-conda activate amazing
-python evaluate.py --epochs=10 --data=/in/put/dir
+jupyter notebook results.ipynb
 ```
-Data can be found at ...
-Output will be saved in ...
+---
+
+### 2️⃣ Preprocess the Data
+
+Run the `results.ipynb` notebook to clean and combine the raw datasets. This will generate the `preprocessed_data/` directory containing the final dataset used for training and evaluation.
+
+```bash
+jupyter notebook results.ipynb
+```
+### 3️⃣ 🧠 Train or Evaluate a Model (Optional)
+
+If you'd like to train your own models or evaluate them on the preprocessed dataset, you can do so by running the individual model scripts provided:
+
+```bash
+python resnet50.py
+python densenet.py
+...
+```
+Each script will train the respective model and output a .h5 or .pth file
+
+Once training is complete, create a folder named Model/ in the root directory and move all the trained .h5 files into it:
+```bash
+xray-ai-diagnostics/
+├── Model/
+│   ├── resnet_model.h5
+│   ├── vgg16_model.h5
+│   ├── densenet_model.h5
+│   └── ...
+```
+    ⚠️ The Flask web app expects these model files to be present inside the Model/ folder. Without them, prediction will not work.
+
+You can then proceed to run the web application using:
+```bash
+cd src
+python app.py
+```
 
 <a name="guide"></a>
 ## 4. Guidance
